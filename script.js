@@ -31,7 +31,6 @@ function changeColor() {
   this.classList.add('item-hover');
 }
 
-radio.addEventListener('change', createGrid);
 
 
 // Reset button

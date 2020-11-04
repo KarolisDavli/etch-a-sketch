@@ -20,34 +20,38 @@ ol, ul {
 }
 
 :root {
-  --rowNum: 16;
-  --colNum: 16;
+  --rowNum: 32;
+  --colNum: 32;
 }
 
 /* Styles */
 .container {
   display: flex;
   flex-direction: column;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin: auto;
   align-items: center;
-  border: 1px red solid;
+  justify-content: space-between;
+  max-width: 960px;
+  height: 100vh;
 }
 
 .grid {
   display: grid;
-  grid-template-rows: repeat(var(--rowNum), 22px);
-  grid-template-columns: repeat(var(--colNum), 22px);
+  grid-template-rows: repeat(var(--rowNum), minmax(11px, 1fr));
+  grid-template-columns: repeat(var(--colNum), minmax(11px, 1fr));
+
   /* grid-gap: 1rem; */
 
 }
 
 .item {
   background-color: blueviolet;
-  height: 20px;
-  width: 20px;
+  height: 10px;
+  width: 10px;
+}
+
+.item-hover {
+  background-color: yellowgreen;
 }
 
 /* Button */

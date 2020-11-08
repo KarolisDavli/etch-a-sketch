@@ -4,6 +4,7 @@ const reset = document.querySelector('.reset');
 const rainbowButton = document.querySelector('.trip');
 const item = document.querySelectorAll('.item');
 const shades = document.querySelector('.black');
+const clear = document.querySelector('.clear');
 
 
 
@@ -15,7 +16,19 @@ let colNum =
 parseInt(htmlStyles.getPropertyValue("--colNum"));
 
 
-// Create grid
+// Create grid button
+reset.addEventListener('click', resetGrid);
+
+function resetGrid() {
+  grid.innerHTML = '';
+  colNum = prompt('How many rows?');
+  rowNum = prompt('How many columns?');
+  document.documentElement.style.setProperty("--colNum", colNum);
+  document.documentElement.style.setProperty("--rowNum", rowNum);
+  createGrid(colNum, rowNum);
+}
+
+// Grid generator
 function createGrid(x, y) {
   for (i = 1; i <= x * y; i++) {
     const div = document.createElement('div');
@@ -29,14 +42,12 @@ function createGrid(x, y) {
 function addHoverClass() {
   const item = document.querySelectorAll('.item');
   item.forEach((e) => {
-    e.addEventListener('mouseover', changeColor);
+    e.addEventListener('mouseover', () => {
+      e.classList.add('item-hover');
+    });
   })
+}
 
-  // Change color function
-function changeColor() {
-  this.classList.add('item-hover');
-}
-}
 
 // Rainbow
 rainbowButton.addEventListener('click', trip);
@@ -44,60 +55,38 @@ rainbowButton.addEventListener('click', trip);
 function trip() {
   const item = document.querySelectorAll('.item');
   item.forEach((e) => {
-    e.addEventListener('mouseover', rainbowColors);
+    e.addEventListener('mouseover', () => {
+      const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+      rainbow = "#" + randomColor;
+      e.style.backgroundColor = rainbow;
+    });
   })
 }
 
-// Random color
-function rainbowColors() {
-  const randomColor = Math.floor(Math.random() * 16777215).toString(16);
-  rainbow = "#" + randomColor;
-  this.style.backgroundColor = rainbow;
-}
 
 // Black shades
 shades.addEventListener('click', blackShades);
 
 function blackShades() {
-  const item = document.querySelectorAll('.item');
-  item.forEach((e) => {
-    e.addEventListener('mouseover', opacityIncrese);
-    shade = 0;
-  })
-}
-
-function opacityIncrese() {
-  shade = shade + 0.1;
-  console.log(shade);
-  this.style.opacity = shade;
+    const item = document.querySelectorAll('.item');
+    item.forEach((e) => {
+      let shade = 0.1;
+      e.addEventListener('mouseover', () => {
+        e.style.backgroundColor = `rgb(0,0,0, ${shade})`;
+        shade += 0.1;
+      })
+    })
 }
 
 
 
+// Clear everything
+clear.addEventListener('click', clearGrid);
 
-// Reset button
-reset.addEventListener('click', resetGrid);
-
-function resetGrid() {
+function clearGrid() {
   grid.innerHTML = '';
-  colNum = prompt('How many rows?');
-  rowNum = prompt('How many columns?');
-  document.documentElement.style.setProperty("--colNum", colNum);
-  document.documentElement.style.setProperty("--rowNum", rowNum);
-  createGrid(colNum, rowNum)
+
 }
 
 
-
-
-
-
-
-
-
-
-// Dynamic CSS properties, pulling them with JS
-// HTML input tag
-
-// Updating CSS variables with input from user with a prompt
 

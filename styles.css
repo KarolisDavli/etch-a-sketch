@@ -2,7 +2,7 @@
 html {
   box-sizing: border-box;
   font-size: 16px;
-  background-color: #F2EDEB;
+  background-color: #EDF2EF;
 }
 
 *, *:before, *:after {
@@ -14,6 +14,7 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul, .counter {
   padding: 0;
   font-weight: normal;
   font-family: quasimoda-2, sans-serif;
+  color: #212738;
 }
 
 ol, ul {
@@ -32,7 +33,8 @@ ol, ul {
   flex-direction: column;
   margin: auto;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  height: 100vh;
 }
 
 .grid {
@@ -46,6 +48,7 @@ ol, ul {
 .item {
   background-color: #BC4749;
   margin: 1px;
+  transition: all .3s;
 }
 
 .item-hover {
@@ -56,11 +59,33 @@ ol, ul {
   background-color: var(--rainbow);
 }
 
+.footer {
+  font-size: 12px;
+  padding: 1rem;
+}
+
 
 /* Button */
 button {
-  border: 2px solid black;
+  border: 2px solid #212738;
+  color: #212738;
   background: transparent;
   margin: 1rem;
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  font-weight: 600;
+}
+
+button:hover {
+  background-color: #C9696B;
+  border: 2px solid #C9696B;
+  transition: all .3s;
+  color: #EDF2EF;
+}
+
+button:focus {
+  background-color: #BC4749;
+  outline: none;
+  color: #EDF2EF;
+  border: 2px solid #BC4749;
 }

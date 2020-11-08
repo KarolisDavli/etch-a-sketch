@@ -1,6 +1,11 @@
 const grid = document.querySelector('.grid');
 const radio = document.querySelector('input');
-const reset = document.querySelector('button');
+const reset = document.querySelector('.reset');
+const rainbowButton = document.querySelector('.trip');
+const item = document.querySelectorAll('.item');
+const shades = document.querySelector('.black');
+
+
 
 let htmlStyles =
 window.getComputedStyle(document.querySelector("html"));
@@ -9,27 +14,64 @@ parseInt(htmlStyles.getPropertyValue("--rowNum"));
 let colNum =
 parseInt(htmlStyles.getPropertyValue("--colNum"));
 
+
+// Create grid
 function createGrid(x, y) {
-  // Loop to create a grid
   for (i = 1; i <= x * y; i++) {
     const div = document.createElement('div');
     div.classList.add('item');
     grid.appendChild(div);
-    console.log(i);
+    addHoverClass();
   }
+}
 
-  // Add hover status to each grid item
+ // Add hover status to each grid item
+function addHoverClass() {
   const item = document.querySelectorAll('.item');
   item.forEach((e) => {
     e.addEventListener('mouseover', changeColor);
   })
 
-}
-
-// Change color function
+  // Change color function
 function changeColor() {
   this.classList.add('item-hover');
 }
+}
+
+// Rainbow
+rainbowButton.addEventListener('click', trip);
+
+function trip() {
+  const item = document.querySelectorAll('.item');
+  item.forEach((e) => {
+    e.addEventListener('mouseover', rainbowColors);
+  })
+}
+
+// Random color
+function rainbowColors() {
+  const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+  rainbow = "#" + randomColor;
+  this.style.backgroundColor = rainbow;
+}
+
+// Black shades
+shades.addEventListener('click', blackShades);
+
+function blackShades() {
+  const item = document.querySelectorAll('.item');
+  item.forEach((e) => {
+    e.addEventListener('mouseover', opacityIncrese);
+    shade = 0;
+  })
+}
+
+function opacityIncrese() {
+  shade = shade + 0.1;
+  console.log(shade);
+  this.style.opacity = shade;
+}
+
 
 
 
@@ -44,6 +86,13 @@ function resetGrid() {
   document.documentElement.style.setProperty("--rowNum", rowNum);
   createGrid(colNum, rowNum)
 }
+
+
+
+
+
+
+
 
 
 

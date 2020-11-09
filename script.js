@@ -31,7 +31,7 @@ function resetGrid() {
 
 // Grid generator
 function createGrid(size) {
-  if (size >= 64) {
+  if (size <= 64) {
     for (i = 1; i <= size; i++) {
       const div = document.createElement('div');
       div.classList.add('item');

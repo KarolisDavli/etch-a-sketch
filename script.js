@@ -25,16 +25,20 @@ function resetGrid() {
   rowNum = prompt('How many columns?');
   document.documentElement.style.setProperty("--colNum", colNum);
   document.documentElement.style.setProperty("--rowNum", rowNum);
-  createGrid(colNum, rowNum);
+  let size = colNum * rowNum
+  createGrid(size);
 }
 
 // Grid generator
-function createGrid(x, y) {
-  for (i = 1; i <= x * y; i++) {
-    const div = document.createElement('div');
-    div.classList.add('item');
-    grid.appendChild(div);
-    addHoverClass();
+function createGrid(size) {
+  if (size >= 64) {
+    for (i = 1; i <= size; i++) {
+      const div = document.createElement('div');
+      div.classList.add('item');
+      grid.appendChild(div);
+    }
+  } else {
+    alert("Max height/width = 64");
   }
 }
 

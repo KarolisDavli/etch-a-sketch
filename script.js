@@ -26,20 +26,20 @@ function resetGrid() {
   document.documentElement.style.setProperty("--colNum", colNum);
   document.documentElement.style.setProperty("--rowNum", rowNum);
   let size = colNum * rowNum
-  createGrid(size);
+  if (rowNum <= 64 && rowNum <= 64) {
+    createGrid(size);
+  } else {
+    alert("Max height/width = 64");
+  }
 }
 
 // Grid generator
 function createGrid(size) {
-  if (size <= 64) {
     for (i = 1; i <= size; i++) {
       const div = document.createElement('div');
       div.classList.add('item');
       grid.appendChild(div);
     }
-  } else {
-    alert("Max height/width = 64");
-  }
 }
 
  // Add hover status to each grid item

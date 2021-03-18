@@ -46,9 +46,9 @@ ol, ul {
 }
 
 .item {
-  background-color: #BC4749;
-  margin: 1px;
+  background-color: #028090;
   transition: all .3s;
+  margin: 1px;
 }
 
 .item-hover {
@@ -67,7 +67,7 @@ ol, ul {
 
 /* Button */
 button {
-  border: 2px solid #212738;
+  border: 2px solid #028090;
   color: #212738;
   background: transparent;
   margin: 1rem;
@@ -77,15 +77,15 @@ button {
 }
 
 button:hover {
-  background-color: #C9696B;
-  border: 2px solid #C9696B;
+  background-color: #0393a6;
+  border: 2px solid #0393a6;
   transition: all .3s;
   color: #EDF2EF;
 }
 
 button:focus {
-  background-color: #BC4749;
+  background-color: #028090;
   outline: none;
   color: #EDF2EF;
-  border: 2px solid #BC4749;
+  border: 2px solid #028090;
 }

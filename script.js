@@ -21,15 +21,15 @@ reset.addEventListener('click', resetGrid);
 
 function resetGrid() {
   grid.innerHTML = '';
-  colNum = prompt('How many rows?');
-  rowNum = prompt('How many columns?');
+  colNum = prompt('How many columns?');
+  rowNum = prompt('How many rows?');
   document.documentElement.style.setProperty("--colNum", colNum);
   document.documentElement.style.setProperty("--rowNum", rowNum);
   let size = colNum * rowNum
-  if (rowNum <= 64 && rowNum <= 64) {
+  if (rowNum <= 36 && rowNum <= 36) {
     createGrid(size);
   } else {
-    alert("Max height/width = 64");
+    alert("Max height/width = 36");
   }
 }
 

@@ -7,13 +7,10 @@ const shades = document.querySelector('.black');
 const clear = document.querySelector('.clear');
 
 
-
-let htmlStyles =
-window.getComputedStyle(document.querySelector("html"));
-let rowNum =
-parseInt(htmlStyles.getPropertyValue("--rowNum"));
-let colNum =
-parseInt(htmlStyles.getPropertyValue("--colNum"));
+// Select CSS values
+let htmlStyles = window.getComputedStyle(document.querySelector("html"));
+let rowNum = parseInt(htmlStyles.getPropertyValue("--rowNum"));
+let colNum = parseInt(htmlStyles.getPropertyValue("--colNum"));
 
 
 // Create grid button
